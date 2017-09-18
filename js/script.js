@@ -1,4 +1,4 @@
-function loadApi(){
+function loadCurrencies(){
 	var xhr = new XMLHttpRequest();
 	var limit = '?limit=100';
   
@@ -10,7 +10,7 @@ function loadApi(){
 	// }
 
 	xhr.onerror = function(){
-		console.log('Reques Error...');
+		console.log('Request Error...');
 	}
 
 
@@ -45,4 +45,41 @@ function loadApi(){
 	xhr.send();
 }
 
-loadApi();
+function globalData(){
+	var xhr = new XMLHttpRequest();
+  
+	xhr.open('GET', 'https://api.coinmarketcap.com/v1/global/', true);
+
+	xhr.onerror = function(){
+		console.log('Request Error...');
+	}
+
+
+	xhr.onload = function(){
+		if (this.status == 200) {
+			var data = JSON.parse(this.responseText);
+			var output = '';
+
+				output += 
+				`<ul>
+					<li>Market Cap: $${data.total_market_cap_usd}</li>
+					<li>total 24h volume usd: $${data.total_24h_volume_usd}</li>
+					<li>bitcoin percentage of market cap: ${data.bitcoin_percentage_of_market_cap}%</li>
+					<li>active currencies: ${data.active_currencies}</li>
+					<li>active assets: ${data.active_assets}</li>
+					<li>active markets: ${data.active_markets}</li>
+				</ul>`;
+
+			document.getElementById('globalData').innerHTML = output;
+			
+		} else if (this.status == 404) {
+			console.log('Not Found');
+		}
+	}
+
+	// sends request
+	xhr.send();
+}
+
+loadCurrencies();
+globalData();
