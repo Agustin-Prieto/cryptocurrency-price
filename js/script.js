@@ -1,3 +1,5 @@
+// console.log(document.getElementById('priceContainer').content);
+
 function loadCurrencies(){
 	var xhr = new XMLHttpRequest();
 	var limit = '?limit=100';
@@ -22,17 +24,17 @@ function loadCurrencies(){
 
 			for(var i in currencies){
 				output += 
-				`<ul>
-					<li>Name: ${currencies[i].name}</li>
-					<li>Symbol: ${currencies[i].symbol}</li>
-					<li>Rank: ${currencies[i].rank}</li>
-					<li>Price: $${currencies[i].price_usd}</li>
-					<li>Market Cap: $${currencies[i].market_cap_usd}</li>
-					<li>Change in 24h: ${currencies[i].percent_change_24h}%</li>
-				</ul>`;
+				`<tr>
+				 	<th scope="row">${currencies[i].rank}</th>
+					<td>${currencies[i].name}</td>
+					<td>$${currencies[i].price_usd}</td>
+					<td>$${currencies[i].market_cap_usd}</td>
+					<td>${currencies[i].total_supply} ${currencies[i].symbol}</td>
+					<td>${currencies[i].percent_change_24h}</td>
+		 		</tr>`;
 			}
 
-			document.getElementById('priceContainer').innerHTML = output;
+			document.getElementById('info').insertAdjacentHTML('beforeend', output);
 
 			// console.log(this.responseText);
 			
