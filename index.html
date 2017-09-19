@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,700|Lato" rel="stylesheet">
 	<title>Cryptocurrencies Price</title>
 </head>
 <body>
-	<h1>Price of Cryptocurrencies</h1>
-	<div id="globalData"></div>
-	<div id="priceContainer">
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th>#</th>
-		      <th>Name</th>
-		      <th>Price</th>
-		      <th>Market Cap</th>
-		      <th>Circulating Suppy</th>
-		      <th>% Change 24h</th>
-		    </tr>
-		  </thead>
-		  <tbody id="info">
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col col-md-112">
+					<h1 class="main-title text-center">CyptoCoinPrice</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="showcase">
+		<div class="container">
+
+			<div id="globalData" class="global_data-container">
 				
-  		</tbody>
-  	</table>
-	</div>
+			</div>
+
+			<div id="priceContainer" class="price-container">
+				<table class="table">
+			  	<thead>
+			    	<tr>
+				      <th>#</th>
+				      <th>Name</th>
+				      <th>Price</th>
+				      <th>Market Cap</th>
+				      <th>Circulating Suppy</th>
+				      <th>% Change 24h</th>
+			    	</tr>
+			  	</thead>
+
+			  	<tbody id="info"></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
 
 	<script src="js/script.js"></script>
 </body>
